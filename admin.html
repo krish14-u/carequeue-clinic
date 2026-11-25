@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clinic Admin Dashboard — CareQueue Clinic</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <span class="brand-badge">+</span>
+        <span>CareQueue Clinic</span>
+      </a>
+      <div class="nav-links">
+        <a href="/">Find Doctors</a>
+        <a href="/admin.html" class="active">Clinic Admin</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <div class="section-header">
+      <h2>Clinic Administration Dashboard</h2>
+      <select id="status-filter">
+        <option value="all">All Statuses</option>
+        <option value="Confirmed">Confirmed</option>
+        <option value="Completed">Completed</option>
+        <option value="Cancelled">Cancelled</option>
+      </select>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="val" id="stat-total">0</div>
+        <div class="lbl">Total Appointments</div>
+      </div>
+      <div class="stat-box">
+        <div class="val" id="stat-confirmed">0</div>
+        <div class="lbl">Confirmed</div>
+      </div>
+      <div class="stat-box">
+        <div class="val" id="stat-completed">0</div>
+        <div class="lbl">Completed</div>
+      </div>
+      <div class="stat-box">
+        <div class="val" id="stat-doctors">0</div>
+        <div class="lbl">Active Doctors</div>
+      </div>
+    </div>
+
+    <div class="card-panel">
+      <h3 style="margin-bottom:14px;">Manage Appointments</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Code</th>
+              <th>Patient</th>
+              <th>Doctor</th>
+              <th>Schedule</th>
+              <th>Reason</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-appts-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card-panel">
+      <h3 style="margin-bottom:14px;">Add New Specialist</h3>
+      <div id="doc-alert"></div>
+      <form id="add-doctor-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Doctor Name</label>
+            <input type="text" id="doc-name" required placeholder="e.g. Dr. Kavita Rao" />
+          </div>
+          <div class="form-group">
+            <label>Specialization</label>
+            <input type="text" id="doc-spec" required placeholder="e.g. Neurology" />
+          </div>
+          <div class="form-group">
+            <label>Qualification</label>
+            <input type="text" id="doc-qual" required placeholder="e.g. MBBS, DM" />
+          </div>
+          <div class="form-group">
+            <label>Experience (Years)</label>
+            <input type="number" id="doc-exp" required min="1" value="5" />
+          </div>
+          <div class="form-group">
+            <label>Consultation Fee (&#8377;)</label>
+            <input type="number" id="doc-fee" required min="100" value="500" />
+          </div>
+          <div class="form-group">
+            <label>Available Days</label>
+            <input type="text" id="doc-days" required value="Mon - Sat" />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Doctor</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="/admin.js"></script>
+</body>
+</html>
