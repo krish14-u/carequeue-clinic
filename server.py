@@ -7,7 +7,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, urlparse
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-PUBLIC_DIR = os.path.join(BASE_DIR, "public")
+PUBLIC_DIR = BASE_DIR
 DB_PATH = os.path.join(BASE_DIR, "clinic.db")
 
 TIME_SLOTS = [
